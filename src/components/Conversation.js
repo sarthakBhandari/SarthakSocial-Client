@@ -21,7 +21,7 @@ const Conversation = ({
       }
     };
     fetchUser();
-  }, []);
+  }, [conversation, currentUser]);
 
   return (
     <div
