@@ -16,11 +16,7 @@ const Topbar = () => {
   });
 
   // searching for a user
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const history = useHistory();
   const onSubmit = (data) => {
     let { search } = data;
