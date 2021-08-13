@@ -51,7 +51,9 @@ const Messenger = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const res = await axios.get(`/conversations/${currentUser._id}`);
+        const res = await axios.get(
+          `https://sarthak-social.herokuapp.com/api/conversations/${currentUser._id}`
+        );
         setConversations(res.data);
       } catch (error) {
         console.log(error);
@@ -93,7 +95,9 @@ const Messenger = () => {
     if (selectedConv) {
       const fetchMessages = async () => {
         try {
-          const res = await axios.get(`/messages/${selectedConv._id}`);
+          const res = await axios.get(
+            `https://sarthak-social.herokuapp.com/api/messages/${selectedConv._id}`
+          );
           setMessages(res.data);
         } catch (error) {
           console.log(error);
@@ -135,7 +139,10 @@ const Messenger = () => {
       };
 
       try {
-        const res = await axios.post("/messages/", message);
+        const res = await axios.post(
+          "https://sarthak-social.herokuapp.com/api/messages/",
+          message
+        );
         reset();
         setMessages([...messages, res.data]);
 

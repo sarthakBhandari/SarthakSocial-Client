@@ -25,7 +25,10 @@ const Register = () => {
     } else {
       const { password1, ...other } = data;
       try {
-        const res = await axios.post("/auth/register", other);
+        const res = await axios.post(
+          "https://sarthak-social.herokuapp.com/api/auth/register",
+          other
+        );
         if (res) {
           setAlert({
             show: true,

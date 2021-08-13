@@ -13,7 +13,9 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users/?username=${params.username}`);
+      const res = await axios.get(
+        `https://sarthak-social.herokuapp.com/api/users/?username=${params.username}`
+      );
       setUser(res.data);
     };
     fetchUser();

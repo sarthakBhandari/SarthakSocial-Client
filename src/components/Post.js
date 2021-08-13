@@ -12,7 +12,9 @@ const Post = (props) => {
   const [user, setUser] = useState({});
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(`/users/?userId=${props.userId}`);
+      const res = await axios.get(
+        `https://sarthak-social.herokuapp.com/api/users/?userId=${props.userId}`
+      );
       setUser(res.data);
     };
     fetchPosts();
@@ -28,7 +30,9 @@ const Post = (props) => {
   );
   const handleLike = () => {
     try {
-      axios.put(`/posts/${_id}/like`, { userId: currentUser._id });
+      axios.put(`https://sarthak-social.herokuapp.com/api/posts/${_id}/like`, {
+        userId: currentUser._id,
+      });
     } catch (error) {}
 
     setLikes(didLike ? likes - 1 : likes + 1);

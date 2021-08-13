@@ -37,7 +37,10 @@ const Share = () => {
       desc: data.desc,
     };
     try {
-      const res = await axios.post("/posts/", userPost);
+      const res = await axios.post(
+        "https://sarthak-social.herokuapp.com/api/posts/",
+        userPost
+      );
       const post = res.data;
       if (post) {
         if (imageToPost) {
@@ -56,10 +59,13 @@ const Share = () => {
                 .child(post._id)
                 .getDownloadURL();
               if (url) {
-                await axios.put(`/posts/${post._id}`, {
-                  userId: user._id,
-                  img: url,
-                });
+                await axios.put(
+                  `https://sarthak-social.herokuapp.com/api/posts/${post._id}`,
+                  {
+                    userId: user._id,
+                    img: url,
+                  }
+                );
               }
             }
           );

@@ -10,7 +10,9 @@ const ChatOnline = ({ onlineUsers, currentUserId, setSelectedConv }) => {
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const res = await axios.get(`/users/friends/${currentUserId}`);
+        const res = await axios.get(
+          `https://sarthak-social.herokuapp.com/api/users/friends/${currentUserId}`
+        );
         setFriends(res.data);
       } catch (error) {
         console.log(error);
@@ -29,7 +31,7 @@ const ChatOnline = ({ onlineUsers, currentUserId, setSelectedConv }) => {
     const fetchConversation = async () => {
       try {
         const res = await axios.get(
-          `/conversations/find/${currentUserId}/${friendId}`
+          `https://sarthak-social.herokuapp.com/api/conversations/find/${currentUserId}/${friendId}`
         );
         setSelectedConv(res.data);
       } catch (error) {

@@ -28,7 +28,9 @@ const Topbar = () => {
     } else {
       const searchUser = async () => {
         try {
-          const res = await axios.get(`/users/?username=${search}`);
+          const res = await axios.get(
+            `https://sarthak-social.herokuapp.com/api/users/?username=${search}`
+          );
           if (res.data) {
             history.push(`/profile/${search}`);
           }
